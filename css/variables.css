@@ -1,0 +1,15 @@
+:root.dark {
+  --primary-color: #f53855;
+  --text-color: #ffffff;
+  --text-secondary: #cfcfcf;
+  --bg-color: #191a23;
+  --bg-secondary: #1d2029;
+}
+
+:root.light {
+  --primary-color: #f53855;
+  --text-color: #0b132a;
+  --text-secondary: #4f5665;
+  --bg-color: #ffffff;
+  --bg-secondary: #ffffff;
+}
