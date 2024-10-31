@@ -1,3 +1,4 @@
+/* DARK MODE VARIABLES */
 :root.dark {
   --primary-color: #f53855;
   --text-color: #ffffff;
@@ -6,6 +7,7 @@
   --bg-secondary: #1d2029;
 }
 
+/* LIGHT MODE VARIABLES */
 :root.light {
   --primary-color: #f53855;
   --text-color: #0b132a;

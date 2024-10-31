@@ -1,26 +1,14 @@
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const hamburgerIcon = document.querySelector(".hamburger-icon");
-const menu = document.querySelector(".navbar");
-const navLinks = document.querySelectorAll(".nav-link");
-let theme = document.documentElement;
 const themeSwitch = document.querySelector(".theme-switch");
+const navLinks = document.querySelectorAll(".nav-link");
 const moonIcon = document.querySelector(".moon-icon");
 const sunIcon = document.querySelector(".sun-icon");
 const savedTheme = localStorage.getItem("theme");
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const menu = document.querySelector(".navbar");
+const theme = document.documentElement;
 
-hamburgerIcon.addEventListener("click", () => {
-  hamburgerIcon.classList.toggle("active");
-  menu.classList.toggle("active");
-});
-
-navLinks.forEach((item) => {
-  item.addEventListener("click", () => {
-    hamburgerIcon.classList.remove("active");
-    menu.classList.remove("active");
-  });
-});
-
-
+// Check if there is a saved theme in the localStorage or not.
 if (savedTheme) {
   theme.className = savedTheme;
 } else if (prefersDark) {
@@ -29,6 +17,7 @@ if (savedTheme) {
   theme.className = "light";
 }
 
+//  Logic of the theme switch button, keep user's preferences in the localStorage.
 themeSwitch.addEventListener("click", () => {
   if (theme.className === "dark") {
     theme.className = "light";
@@ -37,4 +26,19 @@ themeSwitch.addEventListener("click", () => {
     theme.className = "dark";
     localStorage.setItem("theme", "dark");
   }
+});
+
+
+// Logic of the hamburger button.
+hamburgerIcon.addEventListener("click", () => {
+  hamburgerIcon.classList.toggle("active");
+  menu.classList.toggle("active");
+});
+
+// Close menu by clicking on a navigation item.
+navLinks.forEach((item) => {
+  item.addEventListener("click", () => {
+    hamburgerIcon.classList.remove("active");
+    menu.classList.remove("active");
+  });
 });
